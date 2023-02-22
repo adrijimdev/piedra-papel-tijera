@@ -47,39 +47,21 @@ function choosePlayerOption(index){ /*Retornamos la opción que haya escogido el
 function chooseCPUOption(){ /*Esta funcion selecciona la imagen de lo que haya elegido la CPU*/
    const randomIndex = Math.floor(Math.random() * 3);
    const imageName = opciones[randomIndex];
-   cpuImage.src = 'images/'+imageName+ '.png'
+   cpuImage.src = `images${imageName}.png`;
    return opciones[randomIndex];
 }
 
 function show(){ /*Esta función contempla todas las opciones disponibles del juego, pero es muy larga. ¿Puedes reducirla?*/
     let gameResult; 
     //Caso de empate
-    if(cpuSelection === playerSelection){ /*Caso de empate*/
+    if(playerSelection === cpuSelection){ /*Caso de empate*/
         result.textContent = `Has empatado`;
-    }
-    else if (playerSelection == 'rock'){ /*Opciones de la piedra*/
-        if(cpuSelection == 'paper'){
-            result.textContent = `Perdiste :(`;
-        }
-        else if(cpuSelection == 'scissors'){
-            result.textContent = `Ganaste :)`;
-        }
-    }
-    else if (playerSelection == 'paper'){ /*Opciones del papel*/
-        if(cpuSelection == 'rock'){
-            result.textContent = `Ganaste :)`;
-        }
-        else if(cpuSelection == 'scissors'){
-            result.textContent = `Perdiste :(`;
-        }
-    }
-    else if (playerSelection == 'scissors'){ /*Opciones de las tijeras*/
-        if(cpuSelection == 'rock'){
-            result.textContent = `Perdiste :(`;
-        }
-        else if(cpuSelection == 'paper'){
-            result.textContent = `Ganaste :)`;
-        }
+    } else if(playerSelection === "rock" && cpuSelection === "scissors" || 
+                playerSelection === "scissors" && cpuSelection === "paper" || 
+                playerSelection === "paper" && cpuSelection === "rock") {
+        result.textContent = "Has ganado"
+    } else {
+        result.textContent = "Has perdido"
     }
 }
 

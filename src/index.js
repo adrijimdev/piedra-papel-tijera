@@ -47,7 +47,7 @@ function choosePlayerOption(index){ /*Retornamos la opción que haya escogido el
 function chooseCPUOption(){ /*Esta funcion selecciona la imagen de lo que haya elegido la CPU*/
    const randomIndex = Math.floor(Math.random() * 3);
    const imageName = opciones[randomIndex];
-   cpuImage.src = `images${imageName}.png`;
+   cpuImage.src = `images/${imageName}.png`;
    return opciones[randomIndex];
 }
 
